@@ -2,32 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  border-color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+video {
+  outline: 4px solid white;
+  outline-offset: -4px;
+}
+
+.header-border {
+  height: 5px;
+  background: yellow;
+  width: 100vw;
+  z-index: 2;
+  background: repeating-linear-gradient(10deg, rgb(244, 234, 208) 0%, #ffffff, rgb(244, 234, 208));
+  background-size: 200% 200%;
+  animation: slide 4s linear infinite;
+}
+
+.header-red {
+  background: repeating-linear-gradient(10deg, rgb(244, 234, 208), #EF5C5C, rgb(244, 234, 208));
+  background-size: 200% 200%;
+}
+
+.header-blue {
+  background: repeating-linear-gradient(10deg, rgb(244, 234, 208), #3B8BEB, rgb(244, 234, 208));
+  background-size: 200% 200%;
+}
+
+.header-green {
+  background: repeating-linear-gradient(10deg, rgb(244, 234, 208), #5CD595, rgb(244, 234, 208));
+  background-size: 200% 200%;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0% -0%;
+  }
+
+  100% {
+    background-position: -200% 0%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#scrolly-text {
+  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+#scrolly-text:hover {
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke-width: 1px;
+}
+
+.black-scrolly-btn:hover {
+  color: black;
+  -webkit-text-stroke-color: black;
+}
+
+.blue-scrolly-btn:hover {
+  color: #3B8BEB;
+  -webkit-text-stroke-color: #3B8BEB;
+}
+
+.green-scrolly-btn:hover {
+  color: #5CD595;
+  -webkit-text-stroke-color: #5CD595;
+}
+
+.red-scrolly-btn:hover {
+  color: #EF5C5C;
+  -webkit-text-stroke-color: #EF5C5C;
 }
