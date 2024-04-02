@@ -2,6 +2,7 @@ import * as React from "react"
 import ProjectTemplate from "@/components/ProjectTemplate"
 import DetailsSection from "@/components/DetailsSection"
 import LinkButton from "@/components/LinkButton"
+import Image from "next/image"
 
 export default function Intus() {
     const finalCareRequestImages = [
@@ -43,7 +44,7 @@ export default function Intus() {
                 <div className="max-w-[1300px] bg-slate-50 p-4 rounded-md w-full ">
                     <div className="flex items-center gap-[25px] overflow-scroll">
                         {finalCareRequestImages.map((img, i) =>
-                            <img key={i} src={img} className="max-w-xs rounded-md" />
+                            <Image key={i} src={img} className="max-w-xs rounded-md" alt={`{i}th care request screen`} />
                         )}
                     </div>
                 </div>

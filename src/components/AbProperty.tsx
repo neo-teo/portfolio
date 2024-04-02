@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as React from "react"
 
 interface AbPropertyProps {
@@ -16,7 +17,7 @@ const AbProperty = ({ title, img, subtitle }: AbPropertyProps) => {
                 {subtitle}
             </div>
             <div>
-                <img className="max-w-[500px] w-full" src={img} alt={"alt"} />
+                <Image className="max-w-[500px] w-full" src={img} alt={"ab property"} />
             </div>
 
         </div>

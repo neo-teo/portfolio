@@ -2,6 +2,7 @@ import * as React from "react"
 import ProjectTemplate from "@/components/ProjectTemplate"
 import DetailsSection from "@/components/DetailsSection"
 import AbProperty from "@/components/AbProperty"
+import Image from "next/image"
 
 export default function A360() {
     return <ProjectTemplate
@@ -34,7 +35,7 @@ export default function A360() {
 
             <div className="flex justify-center">
                 <div className="max-w-[700px]">
-                    <img src={"/a360_combo.png"} alt="example object pages" />
+                    <Image src={"/a360_combo.png"} alt="example object pages" />
                 </div>
             </div>
 

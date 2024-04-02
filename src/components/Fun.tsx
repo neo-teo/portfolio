@@ -4,6 +4,7 @@ import * as React from "react"
 
 import HoverGifinator from "./HoverGifinator"
 import ScrollyButton from "./ScrollyButton"
+import Image from "next/image";
 
 export default function Fun() {
 
@@ -29,7 +30,7 @@ export default function Fun() {
             </div>
 
             {gif && (
-                <img
+                <Image
                     className="max-w-[300px]"
                     src={gif}
                     alt={"Animated gif of photos with filename " + gif}
