@@ -4,6 +4,15 @@ import DetailsSection from "@/components/DetailsSection"
 import AbProperty from "@/components/AbProperty"
 import Image from "next/image"
 
+import a360Combo from "@/../public/a360/a360_combo.png"
+import base from "@/../public/a360/property/base.png"
+import business from "@/../public/a360/property/business.png"
+import checkbox from "@/../public/a360/property/checkbox.png"
+import description from "@/../public/a360/property/description.png"
+import dropdown from "@/../public/a360/property/dropdown.gif"
+import identifying from "@/../public/a360/property/identifying.gif"
+import text from "@/../public/a360/property/text.gif"
+
 export default function A360() {
     return <ProjectTemplate
         title={"ACTIVE>360"}
@@ -35,7 +44,7 @@ export default function A360() {
 
             <div className="flex justify-center">
                 <div className="max-w-[700px]">
-                    <Image src={"/a360_combo.png"} alt="example object pages" />
+                    <Image src={a360Combo} alt="example object pages" />
                 </div>
             </div>
 
@@ -43,39 +52,39 @@ export default function A360() {
             <div className="flex justify-center">
                 <AbProperty
                     title="<BaseProperty />"
-                    img={"/a360/property/base.png"}
+                    img={base}
                     subtitle="Simply renders a label and a value. In this case, Favorite Fruit and an image of a fig."
                 />
             </div>
             <div className="grid gap-[30px] grid-cols-1 lg:grid-cols-2">
                 <AbProperty
                     title="<TextProperty />"
-                    img={"/a360/property/text.gif"}
+                    img={text}
                     subtitle="Renders the value as a text input when in edit mode and regular text when in readonly mode"
                 />
                 <AbProperty
                     title="<TextAreaProperty />"
-                    img={"/a360/property/description.png"}
+                    img={description}
                     subtitle="Renders the value as a resizable text area input when in edit mode and regular text when in readonly mode"
                 />
                 <AbProperty
                     title="<BusinessNameProperty />"
-                    img={"/a360/property/business.png"}
+                    img={business}
                     subtitle="The user is required to fill this in, as denoted by the star"
                 />
                 <AbProperty
                     title="<IdentifyingNameProperty />"
-                    img={"/a360/property/identifying.gif"}
+                    img={identifying}
                     subtitle="This property has custom validation logic relevant to an Identifying Name built into it "
                 />
                 <AbProperty
                     title="<DropdownProperty />"
-                    img={"/a360/property/dropdown.gif"}
+                    img={dropdown}
                     subtitle="Renders the value as a dropdown of passed in options when in edit mode"
                 />
                 <AbProperty
                     title="<CheckboxProperty />"
-                    img={"/a360/property/checkbox.png"}
+                    img={checkbox}
                     subtitle="Renders the value as a checkbox which can be toggled when in edit mode"
                 />
             </div>

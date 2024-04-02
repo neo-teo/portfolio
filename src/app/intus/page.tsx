@@ -4,16 +4,14 @@ import DetailsSection from "@/components/DetailsSection"
 import LinkButton from "@/components/LinkButton"
 import Image from "next/image"
 
-export default function Intus() {
-    const finalCareRequestImages = [
-        "intus/final_care_request/new_job1.png",
-        "intus/final_care_request/new_job2.png",
-        "intus/final_care_request/new_job3.png",
-        "intus/final_care_request/new_job4.png",
-        "intus/final_care_request/new_job5.png",
-        "intus/final_care_request/new_job_review.png",
-    ]
+import careRequest1 from "@/../public/intus/final_care_request/new_job1.png"
+import careRequest2 from "@/../public/intus/final_care_request/new_job2.png"
+import careRequest3 from "@/../public/intus/final_care_request/new_job3.png"
+import careRequest4 from "@/../public/intus/final_care_request/new_job4.png"
+import careRequest5 from "@/../public/intus/final_care_request/new_job5.png"
+import careRequest6 from "@/../public/intus/final_care_request/new_job_review.png"
 
+export default function Intus() {
     return <ProjectTemplate
         title={"INTUS CARE"}
     >
@@ -43,7 +41,7 @@ export default function Intus() {
             <div className="flex justify-center">
                 <div className="max-w-[1300px] bg-slate-50 p-4 rounded-md w-full ">
                     <div className="flex items-center gap-[25px] overflow-scroll">
-                        {finalCareRequestImages.map((img, i) =>
+                        {[careRequest1, careRequest2, careRequest3, careRequest4, careRequest5, careRequest6].map((img, i) =>
                             <Image key={i} src={img} className="max-w-xs rounded-md" alt={`{i}th care request screen`} />
                         )}
                     </div>

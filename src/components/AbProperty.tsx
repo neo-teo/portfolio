@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import * as React from "react"
 
 interface AbPropertyProps {
     title: string,
-    img: string,
+    img: StaticImageData,
     subtitle: string,
 }
 
