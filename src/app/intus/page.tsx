@@ -43,7 +43,7 @@ export default function Intus() {
                 <div className="max-w-[1300px] bg-slate-50 p-4 rounded-md w-full ">
                     <div className="flex items-center gap-[25px] overflow-scroll">
                         {finalCareRequestImages.map((img, i) =>
-                            <img src={img} className="max-w-xs rounded-md" />
+                            <img key={i} src={img} className="max-w-xs rounded-md" />
                         )}
                     </div>
                 </div>
