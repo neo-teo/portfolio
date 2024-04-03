@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     siteName: "Teo Tsivranidis",
     title: "Teo Tsivranidis",
     description: "Teo Tsivranidis is a software developer and designer currently based in Brooklyn, NY. This site contains information about Teo Tsivranidis work experience, his interests, and his contact information.",
-    images: [{
-      url: "https://raw.githubusercontent.com/teo-clone/portfolio/main/public/ogicon.png",
-    }],
   }
 };
 
