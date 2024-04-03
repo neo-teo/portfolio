@@ -10,6 +10,8 @@ export default function Doodle() {
     return <div
         onMouseEnter={() => setIsAngry(true)}
         onMouseLeave={() => setIsAngry(false)}
+        onTouchStart={() => setIsAngry(true)}
+        onTouchEnd={() => setIsAngry(false)}
     >
         <object data={"/angry_blob.svg"} type="image/svg+xml" width="50px" className={`absolute z-10 ${isAngry ? '' : 'hidden'}`} />
         <object data={"/blob.svg"} type="image/svg+xml" width="50px" />
