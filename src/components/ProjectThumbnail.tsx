@@ -1,5 +1,6 @@
 import * as React from "react"
 import LinkButton from "./LinkButton";
+import GitButton from "./GitButton";
 
 export interface ProjectThumbnailProps {
     title: string,
@@ -14,7 +15,13 @@ export default function ProjectThumbnail(props: React.PropsWithChildren<ProjectT
 
     return <div className="border-b flex flex-col" >
         <div className="p-4 flex flex-col gap-3" >
-            <div className="font-bold" > {props.title} </div>
+            <div className="flex items-center gap-3 h-6">
+                <div className="font-bold" > {props.title} </div>
+                {props.gitRepo &&
+                    <GitButton
+                        repoUrl={props.gitRepo}
+                    />}
+            </div>
 
             {props.liveLink
                 ? <LinkButton
@@ -28,12 +35,6 @@ export default function ProjectThumbnail(props: React.PropsWithChildren<ProjectT
                         internalLink
                     />
                     : props.description}
-
-            {props.gitRepo &&
-                <LinkButton
-                    label={props.gitRepo.split("github.com")[1]}
-                    to={props.gitRepo} git
-                />}
 
         </div>
     </div>
