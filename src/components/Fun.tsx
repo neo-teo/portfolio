@@ -20,12 +20,12 @@ export default function Fun() {
         <div id="fun" className="border-t border-b">
             <div className="p-4 flex flex-wrap gap-2">
                 {"In my free time, I"}
-                <HoverGifinator gifSrc={""} label={"hang out with friends"} updateGif={setGif} />
-                <HoverGifinator gifSrc={""} label={"go biking"} updateGif={setGif} />
-                <HoverGifinator gifSrc={""} label={"make things on figma"} updateGif={setGif} />
-                <HoverGifinator gifSrc={""} label={"mix songs"} updateGif={setGif} />
-                <HoverGifinator gifSrc={""} label={"do room rennovations"} updateGif={setGif} />
-                <HoverGifinator gifSrc={""} label={"watch one piece"} updateGif={setGif} />
+                <HoverGifinator gifSrc={"coming soon"} label={"go biking"} updateGif={setGif} />
+                <HoverGifinator gifSrc={"coming soon"} label={"make things on figma"} updateGif={setGif} />
+                <HoverGifinator gifSrc={"coming soon"} label={"mix songs"} updateGif={setGif} />
+                <HoverGifinator gifSrc={"coming soon"} label={"do room rennovations"} updateGif={setGif} />
+                <HoverGifinator gifSrc={"coming soon"} label={"watch one piece"} updateGif={setGif} />
+                {gif}
             </div>
         </div>
     </div>
