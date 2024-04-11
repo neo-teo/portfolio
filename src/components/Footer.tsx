@@ -29,6 +29,6 @@ export default function Footer() {
             Last updated: {commitDateTime}
         </div>
 
-        <img src={"/skater.gif"} className="w-32 mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
+        <img src={"/skater.gif"} className="w-[4rem] mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
     </div>
 }
