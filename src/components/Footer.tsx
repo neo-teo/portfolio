@@ -2,7 +2,6 @@ import { commitDateTime } from "@/commitDate"
 import Image from "next/image"
 import * as React from "react"
 import me from "@/../public/me.png"
-import skater from "@/../public/skater.gif"
 
 export default function Footer() {
     return <div className="flex flex-col justify-center items-center pb-[40px] gap-5 text-sm">
@@ -30,6 +29,6 @@ export default function Footer() {
             Last updated: {commitDateTime}
         </div>
 
-        <img src={"/skater.gif"} className="w-24" alt="skater gif made on ps2nostalgia.win" />
+        <img src={"/skater.gif"} className="w-32 mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
     </div>
 }
