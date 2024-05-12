@@ -26,6 +26,12 @@ const projectProps = [
         gitRepo: "https://github.com/teo-clone/statton"
     },
     {
+        title: "STUUT",
+        timeline: "MAY-JUN 2024",
+        description: "Alleviating friction related to B2B payments",
+        liveLink: "https://www.stuut.co",
+    },
+    {
         fullInfoUrl: "/a360",
         title: "ACTIVE>360",
         timeline: "2020 - 2023",
