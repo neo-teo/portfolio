@@ -104,9 +104,7 @@ export default function MovingMouse() {
         }
 
         function resetSpots() {
-            if (p.frameCount % (4 * 60) === 0) {
-                spots = [];
-            }
+            spots = [];
         }
 
         function renderSpots() {
