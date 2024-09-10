@@ -1,9 +1,11 @@
 "use client"
 
 import * as React from "react"
-
-import P5Canvas from "@/components/P5Canvas";
+import dynamic from 'next/dynamic'
 import p5 from 'p5';
+
+const P5Canvas = dynamic(() => import('@/app/cc/sketches/P5Canvas'), { ssr: false });
+
 
 export default function MovingMouse() {
 
@@ -55,7 +57,7 @@ export default function MovingMouse() {
                 dvdMovement();
             }
             if (mode === 3) {
-                flashLocationEveryFour()
+                flashLocation()
             }
 
             parensText()
@@ -94,8 +96,8 @@ export default function MovingMouse() {
             }
         }
 
-        function flashLocationEveryFour() {
-            if (p.frameCount % (4 * 60) === 0) {
+        function flashLocation() {
+            if (p.frameCount % (2 * 60) === 0) {
                 textX = p.random(p.width);
                 textY = p.random(p.height);
             }
