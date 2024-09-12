@@ -19,6 +19,7 @@ export default function MovingMouse() {
     const sketch = (p: p5) => {
         p.preload = () => {
             mousey = p.loadImage("mouse2.png")
+            // mousey = p.loadImage("mousino.png")
         }
 
         p.setup = () => {
