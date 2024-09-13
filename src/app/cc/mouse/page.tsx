@@ -2,10 +2,10 @@
 
 import * as React from "react"
 
-import CoinGame from "../sketches/CoinGame";
+import MovingMouse from "../sketches/MovingMouse";
 
-export default function Coins() {
+export default function Mouse() {
     return <div className="flex flex-wrap items-center">
-        <CoinGame />
+        <MovingMouse />
     </div>
 }
