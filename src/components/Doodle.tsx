@@ -1,7 +1,7 @@
 import * as React from "react"
 
 export default function Doodle() {
-    return <div className="fixed bottom-[-25px] right-[10px] flex justify-end px-10">
+    return <div className="fixed bottom-[-5px] right-[10px] flex justify-end px-10">
         <div className="relative">
             <object
                 data={"/angry_blob.svg"} type="image/svg+xml" width="100px"
