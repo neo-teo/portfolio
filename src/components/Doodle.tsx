@@ -2,10 +2,12 @@ import * as React from "react"
 
 export default function Doodle() {
     return <div className="fixed bottom-[-25px] right-[10px] flex justify-end px-10">
-        <object
-            data={"/angry_blob.svg"} type="image/svg+xml" width="100px"
-            className={`absolute z-10 opacity-0 hover:opacity-100`}
-        />
-        <object data={"/blob.svg"} type="image/svg+xml" width="100px" />
+        <div className="relative">
+            <object
+                data={"/angry_blob.svg"} type="image/svg+xml" width="100px"
+                className={`absolute z-10 opacity-0 hover:opacity-100`}
+            />
+            <object data={"/blob.svg"} type="image/svg+xml" width="100px" />
+        </div>
     </div>
 }
