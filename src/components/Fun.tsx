@@ -19,7 +19,6 @@ export default function Fun() {
         </div>
         <div id="fun" className="border-t border-b">
             <div className="p-4 flex flex-wrap gap-2">
-                {"In my free time, I"}
                 <HoverGifinator gifSrc={"coming soon"} label={"go biking"} updateGif={setGif} />
                 <HoverGifinator gifSrc={"coming soon"} label={"make things on figma"} updateGif={setGif} />
                 <HoverGifinator gifSrc={"coming soon"} label={"mix songs"} updateGif={setGif} />
