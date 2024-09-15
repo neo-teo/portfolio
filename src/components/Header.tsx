@@ -13,7 +13,6 @@ export default function Header({ title, borderColor, children }: PropsWithChildr
                     label={title}
                     color="black"
                 />
-                {children}
             </div>
         </div>
         <div className={`header-border ${borderColor}`}></div>

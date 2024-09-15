@@ -48,14 +48,6 @@ const projectProps = [
 export default function Projects() {
     return (
         <div className="border-blue">
-            <div className="p-4 border-t">
-                <ScrollyButton
-                    label="PROJECTS"
-                    sectionID="projects"
-                    color="blue"
-                />
-            </div>
-
             <div id="projects" className="border-t">
                 <div className="grid grid-cols-1 sm:grid-cols-2">
                     {projectProps.map((props, index) => (

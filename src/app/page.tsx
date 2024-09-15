@@ -12,7 +12,7 @@ export default function Home() {
         <HomeHeader />
 
         <div className="min-h-[90vh] flex flex-col justify-between">
-          <div className="flex flex-col gap-5 py-5">
+          <div className="flex flex-col gap-10 py-10">
             <About />
             <Projects />
             <Fun />

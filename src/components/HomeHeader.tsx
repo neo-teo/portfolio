@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { useEffect, useState } from "react";
-import ScrollyButton from "./ScrollyButton"
 import Header from "./Header";
 
 export default function HomeHeader() {
@@ -42,25 +41,6 @@ export default function HomeHeader() {
         <Header
             title={"TEO TSIVRANIDIS"}
             borderColor={borderColor}
-        >
-            {borderColor === "header-green" &&
-                <ScrollyButton
-                    label="ABOUT"
-                    sectionID="about"
-                    color="green"
-                />}
-            {borderColor === "header-blue" &&
-                <ScrollyButton
-                    label="PROJECTS"
-                    sectionID="projects"
-                    color="blue"
-                />}
-            {borderColor === "header-red" &&
-                <ScrollyButton
-                    label="FUN"
-                    sectionID="fun"
-                    color="red"
-                />}
-        </Header >
+        />
     </>
 }
