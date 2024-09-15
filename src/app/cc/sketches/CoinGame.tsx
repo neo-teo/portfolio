@@ -10,32 +10,50 @@ const P5Canvas = dynamic(() => import('@/app/cc/sketches/P5Canvas'), { ssr: fals
 export default function CoinGame() {
 
     let grid: number[][];
-    let cellD: Map<string, { w: number, h: number }> = new Map();
+    let cellD: Map<string, { w: number, h: number }>;
     let cols = 100;
     let rows = 100;
     let cellSize = 30;
     let satisfactionThreshold = 0.4; // Agents need at least 30% of their neighbors to be of the same type
-    let emptyCells: { x: number, y: number }[] = [];
+    let emptyCells: { x: number, y: number }[];
 
     const sketch = (p: p5) => {
 
         let textSize = p.windowWidth / cols * 4 / 5;
 
-        let colorOne = p.color(p.random(255), p.random(255), p.random(255))
-        let colorTwo = p.color(p.random(255), p.random(255), p.random(255))
+        let colorOne: p5.Color;
+        let colorTwo: p5.Color;
+
+        let slider: p5.Element;
 
         p.setup = () => {
             p.frameRate(8); // Slows down the simulation for visibility
 
             p.createCanvas(p.windowWidth, p.windowHeight);
 
+            p.angleMode(p.DEGREES)
+
+            // slider = p.createSlider(0, 360, 45); // min, max, start
+            // slider.position(0, p.height / 2); // x and y
+            // slider.size(p.width, 20); // width and height
+            p.noStroke()
+
+            // Initialize grid with random 0s, 1s, and 2s
+            initializeGrid()
+        }
+
+        function initializeGrid() {
+            emptyCells = [];
+            cellD = new Map();
+
+            colorOne = p.color(p.random(255), p.random(255), p.random(255))
+            colorTwo = p.color(p.random(255), p.random(255), p.random(255))
+
             cols = p.floor(p.width / cellSize)
             rows = p.floor(p.height / cellSize)
 
             grid = make2DArray(cols, rows);
-            p.noStroke()
 
-            // Initialize grid with random 0s, 1s, and 2s
             for (let i = 0; i < cols; i++) {
                 for (let j = 0; j < rows; j++) {
                     let w = p.random(cellSize * 3 / 4, cellSize * 5 / 5)
@@ -57,6 +75,10 @@ export default function CoinGame() {
             p.background(255);
             drawGrid();
             moveDissatisfiedAgents();
+        }
+
+        p.mouseClicked = () => {
+            initializeGrid()
         }
 
         // Function to create a 2D array

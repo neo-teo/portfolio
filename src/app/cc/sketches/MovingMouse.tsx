@@ -14,11 +14,11 @@ export default function MovingMouse() {
     let yMultiplier = 1;
     let spots: number[][] = [];
 
-    let mode = 1;
+    let mode = 2;
 
     const sketch = (p: p5) => {
         p.preload = () => {
-            mousey = p.loadImage("/mouse2.png")
+            mousey = p.loadImage("/mouse.png")
             // mousey = p.loadImage("/mousino.png")
         }
 
@@ -82,7 +82,7 @@ export default function MovingMouse() {
 
 
         p.mouseClicked = () => {
-            mode = (mode % 3) + 1
+            // mode = (mode % 3) + 1
             resetSpots()
         }
 
