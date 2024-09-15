@@ -4,6 +4,7 @@ import * as React from "react"
 
 import HoverGifinator from "./HoverGifinator"
 import ScrollyButton from "./ScrollyButton"
+import LinkButton from "./LinkButton";
 
 export default function Fun() {
 
@@ -17,14 +18,13 @@ export default function Fun() {
                 color="red"
             />
         </div>
-        <div id="fun" className="border-t border-b">
-            <div className="p-4 flex flex-wrap gap-2">
-                <HoverGifinator gifSrc={"coming soon"} label={"go biking"} updateGif={setGif} />
-                <HoverGifinator gifSrc={"coming soon"} label={"make things on figma"} updateGif={setGif} />
-                <HoverGifinator gifSrc={"coming soon"} label={"mix songs"} updateGif={setGif} />
-                <HoverGifinator gifSrc={"coming soon"} label={"do room rennovations"} updateGif={setGif} />
-                <HoverGifinator gifSrc={"coming soon"} label={"watch one piece"} updateGif={setGif} />
-                {gif}
+        <div id="fun" className="border-t border-b p-4 ">
+            <div className="w-fit">
+                <LinkButton
+                    label={"????"}
+                    to={"/cc"}
+                    internalLink
+                />
             </div>
         </div>
     </div>

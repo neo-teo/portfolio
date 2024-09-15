@@ -55,14 +55,21 @@ export default function Projects() {
                     color="blue"
                 />
             </div>
+
             <div id="projects" className="border-t">
-                {projectProps.map((props) =>
-                    <ProjectThumbnail
-                        key={props.title}
-                        {...props}
-                    />
-                )}
+                <div className="grid grid-cols-1 sm:grid-cols-2">
+                    {projectProps.map((props, index) => (
+                        <div
+                            key={props.title}
+                            className={`${index % 2 === 0 ? 'sm:border-r' : ''
+                                }`}
+                        >
+                            <ProjectThumbnail {...props} />
+                        </div>
+                    ))}
+                </div>
             </div>
+
         </div>
     )
 }

@@ -1,34 +1,13 @@
 import { commitDateTime } from "@/commitDate"
-import Image from "next/image"
 import * as React from "react"
-import me from "@/../public/me.png"
 
 export default function Footer() {
-    return <div className="flex flex-col justify-center items-center pb-[40px] gap-5 text-sm">
+    return <div className="flex flex-col justify-center items-center  gap-5 text-sm pb-4">
 
-        {/* <div className="relative">
-            <Image src={me} className="w-48" alt="Photo of myself" />
-            <div className="absolute top-2/3 transform z-[-10] flex flex-col">
-                <div>----------------------------</div>
-                <div>{"| $$$$$$$$$$$$$$$$$$$ |"}</div>
-                <div>----------------------------</div>
-            </div>
-        </div> */}
-
-        <div className={"flex flex-col items-center gap-2"}>
-            <div>
-                Built on Next.js / Typescript / Tailwindcss.
-            </div>
-            <div>
-                Hosted on Netlify.
-            </div>
-
-        </div>
+        theodore.tsivranidis@gmail.com
 
         <div>
             Last updated: {commitDateTime}
         </div>
-
-        <img src={"/skater.gif"} className="w-[4rem] mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
     </div>
 }

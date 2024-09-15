@@ -8,13 +8,6 @@ export default function Cc() {
 
         <img src={"/skater.gif"} className="py-16 w-[10rem] mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
 
-
-        {/* <LinkButton
-            label={"back to home"}
-            to={"/"}
-            internalLink
-        /> */}
-
         <LinkButton
             label={"mouse"}
             to={"/cc/mouse"}

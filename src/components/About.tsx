@@ -17,13 +17,19 @@ export default function About() {
             </div>
             <div id="about" className="border-green border-t">
                 <div className="border-b p-4 flex flex-col gap-3">
-                    <div>
-                        {"Currently based in New York City."}
+                    <div className="flex flex-wrap text-nowrap gap-1">
+                        {"Currently contracting at"}
+                        <LinkButton
+                            label={"stuut"}
+                            to={"https://stuut.co"}
+                        />
+                        {"and doing an"}
+                        <LinkButton
+                            label={"MFA at Parsons"}
+                            to={"https://blog.teo.fyi"}
+                        />
                     </div>
-
-                    <div>
-                        {"Send me a message at theodore.tsivranidis@gmail.com if you want to work together."}
-                    </div>
+                    {"Based in New York City. "}
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Doodle from "@/components/Doodle";
 import Footer from "@/components/Footer";
 import Fun from "@/components/Fun";
 import HomeHeader from "@/components/HomeHeader";
@@ -10,13 +11,18 @@ export default function Home() {
       <div>
         <HomeHeader />
 
-        <div className="flex flex-col gap-5 py-5">
-          <About />
-          <Projects />
-          <Fun />
+        <div className="min-h-[90vh] flex flex-col justify-between">
+          <div className="flex flex-col gap-5 py-5">
+            <About />
+            <Projects />
+            <Fun />
+          </div>
+
+          <Footer />
         </div>
 
-        <Footer />
+        <Doodle />
+
       </div >
     </main>
   );
