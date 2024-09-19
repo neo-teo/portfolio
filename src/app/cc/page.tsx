@@ -19,5 +19,11 @@ export default function Cc() {
             to={"/cc/coins"}
             internalLink
         />
+
+        <LinkButton
+            label={"face"}
+            to={"/cc/face"}
+            internalLink
+        />
     </div>
 }
