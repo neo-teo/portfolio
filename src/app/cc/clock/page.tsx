@@ -2,8 +2,8 @@
 
 import * as React from "react"
 
-import P5Canvas from "../sketches/P5Canvas";
 import p5 from "p5";
+import P5Canvas from "../sketches/P5Canvas";
 
 export default function Clock() {
     const sketch = (p: p5) => {
