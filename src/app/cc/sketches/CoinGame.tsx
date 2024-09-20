@@ -6,7 +6,6 @@ import p5 from 'p5';
 
 const P5Canvas = dynamic(() => import('@/app/cc/sketches/P5Canvas'), { ssr: false });
 
-
 export default function CoinGame() {
 
     let grid: number[][];
