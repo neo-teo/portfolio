@@ -8,11 +8,6 @@ export default function Cc() {
 
         <img src={"/skater.gif"} className="py-16 w-[10rem] mr-[3.5rem]" alt="skater gif made on ps2nostalgia.win" />
 
-        <LinkButton
-            label={"mouse"}
-            to={"/cc/mouse"}
-            internalLink
-        />
 
         <LinkButton
             label={"coins"}
@@ -21,9 +16,23 @@ export default function Cc() {
         />
 
         <LinkButton
+            label={"clock?"}
+            to={"/cc/clock"}
+            internalLink
+        />
+
+        <LinkButton
             label={"face"}
             to={"/cc/face"}
             internalLink
         />
+
+        <LinkButton
+            label={"mouse"}
+            to={"/cc/mouse"}
+            internalLink
+        />
+
+
     </div>
 }

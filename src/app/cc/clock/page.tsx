@@ -1,119 +1,118 @@
 "use client"
 
 import * as React from "react"
+import dynamic from 'next/dynamic'
+import p5 from "p5";
 
-// import p5 from "p5";
-// import P5Canvas from "../sketches/P5Canvas";
+const P5Canvas = dynamic(() => import('@/app/cc/sketches/P5Canvas'), { ssr: false });
 
-export default function Clock() {
-    // const sketch = (p: p5) => {
+export default function WordClock() {
+    const sketch = (p: p5) => {
 
-    //     let rotationSpeed = 7;
-    //     let circleSize = 40;
-    //     let totalCircles: number;
-    //     let numCols: number;
-    //     let numRows: number;
-    //     let circlesPerSecond: number;
-    //     let rotations: number[] = [];
-    //     let flipColor: boolean[] = [];
+        let minSize: number;
+        let maxSize: number;
 
-    //     p.setup = () => {
-    //         p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+        function calibrateSize() {
+            minSize = p.map(p.windowWidth, 0, 5000, 150, 600);
+            maxSize = minSize * 1.3;
+        }
 
-    //         p.angleMode(p.DEGREES);
+        p.setup = () => {
+            p.createCanvas(p.windowWidth, p.windowHeight);
+            p.angleMode(p.DEGREES);
+            calibrateSize()
+        }
 
-    //         numCols = Math.floor(p.windowWidth / circleSize);
-    //         numRows = Math.floor(p.windowHeight / circleSize);
-    //         totalCircles = numRows * numCols
-    //         circlesPerSecond = totalCircles / 60;
+        p.windowResized = () => {
+            p.createCanvas(p.windowWidth, p.windowHeight);
+            calibrateSize()
+        }
 
-    //         resetSeconds();
-    //     }
+        let currentTime: number;
+        let sizeScale: number;
+        let sizeWavelength = 10000;
+        let rotationWavelength = 10000;
 
-    //     p.windowResized = () => {
-    //         p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+        p.draw = () => {
+            p.background(0, 150, 255);
 
-    //         numCols = Math.floor(p.windowWidth / circleSize);
-    //         numRows = Math.floor(p.windowHeight / circleSize);
-    //         totalCircles = numRows * numCols
-    //         circlesPerSecond = totalCircles / 60;
+            p.push()
+            currentTime = p.millis() % sizeWavelength;
+            sizeScale = p.map(Math.sin(currentTime / sizeWavelength * Math.PI * 2), -1, 1, minSize, maxSize);
 
-    //         resetSeconds();
-    //     }
+            p.noStroke();
+            p.translate(p.width / 2, p.height / 2);
 
-    //     function resetSeconds() {
-    //         for (let i = 0; i < totalCircles; i++) {
-    //             rotations[i] = 0;
-    //             flipColor[i] = i < p.second() * circlesPerSecond;
-    //         }
-    //     }
+            let rotationAngle = Math.sin(currentTime / rotationWavelength * Math.PI * 2) * 180;
+            p.rotate(rotationAngle);
+            halo();
 
-    //     p.draw = () => {
-    //         p.background(255);
+            seconds();
+            flowerCenter();
+            minutesHours();
+            p.pop();
 
-    //         if (p.second() === 0) {
-    //             resetSeconds();
-    //         }
+            p.fill('white');
+            p.textSize(20);
+            p.textStyle(p.BOLD)
+            let hour = p.hour() % 12 || 12; // Converts 0 to 12 for midnight or noon
+            p.text(hour + ":" + p.nf(p.minute(), 2) + ":" + p.nf(p.second(), 2), p.mouseX, p.mouseY);
+        }
 
-    //         for (let i = 0; i < numRows; i++) {
-    //             for (let j = 0; j < numCols; j++) {
-    //                 let circleIndex = (numRows - 1 - i) * numCols + j;
+        function halo() {
+            let haloW = Math.max(p.width / 1.5, 700);
+            p.fill(255, 255, 255, 100);
+            p.ellipse(0, 0, haloW, haloW);
+        }
 
-    //                 p.push();
-    //                 p.translate(
-    //                     j * circleSize - p.width / 2 + circleSize / 2,
-    //                     i * circleSize - p.height / 2 + circleSize / 2
-    //                 );
+        function seconds() {
+            let numLeaves = Math.floor(p.second() / 10) + 2
+
+            let w = p.map(numLeaves, 2, 10, sizeScale * .95, sizeScale * .45)
+
+            numLeaves *= 2;
+
+            p.rectMode(p.CENTER)
+
+            for (let i = 0; i < numLeaves; i++) {
+                p.rotate(360 / numLeaves); // Distribute shapes in a circular pattern
+                p.fill('white');
+                p.rect(0, 0, w, sizeScale * 2, 500);
+            }
+        }
 
 
-    //                 if (circleIndex <= p.second() * circlesPerSecond && circleIndex > (p.second() - 1) * circlesPerSecond) {
-    //                     flipTile(circleIndex)
-    //                 }
+        // ideally this slowly goes back to small guy at minute 0.
+        function minutesHours() {
+            let tensMinutes = Math.floor(p.minute() / 10) + 1; // Tens place of the current minute (0-6)
+            let numCircles = tensMinutes * 2; // Number of circles to draw (0-6)
+            let currentHour = p.hour() % 12 + 1;
 
-    //                 if (flipColor[circleIndex]) {
-    //                     p.fill(0, 255, 150); // "Set" color
-    //                 } else {
-    //                     p.fill(0); // "Unset" color (black)
-    //                 }
+            let distance = p.map(currentHour, 1, 12, sizeScale * 0.8, 0);
 
-    //                 p.noStroke();
-    //                 p.ellipse(0, 0, circleSize, circleSize); // Draw the circle
+            if (numCircles > 0) {
+                let angleStep = 360 / numCircles; // Angle between each circle
 
-    //                 p.pop();
-    //             }
-    //         }
+                for (let i = 0; i < numCircles; i++) {
+                    p.push();
+                    p.rotate(angleStep * i);
+                    p.translate(0, distance);
+                    p.fill('red');
+                    p.ellipse(0, 0, sizeScale * 0.1, sizeScale * .3);
+                    p.pop();
+                }
+            }
+        }
 
-    //         p.push()
-    //         let pg = p.createGraphics(p.windowWidth, p.windowHeight);
-
-    //         // Now draw the 2D text using the 2D graphics buffer
-    //         pg.clear(); // Clear the buffer for each frame
-    //         pg.textSize(100);
-    //         pg.fill('white');
-    //         pg.textAlign(pg.CENTER, pg.CENTER);
-    //         pg.text(`${p.hour()} ${p.minute()} ${p.second()}`, pg.width / 2, pg.height / 2);
-
-    //         // Overlay the 2D graphics on top of the 3D canvas
-    //         p.image(pg, -p.width / 2, -p.height / 2);
-    //         p.pop()
-    //     }
-
-    //     function flipTile(tileIndex: number) {
-    //         rotations[tileIndex] += rotationSpeed; // Increment its rotation
-
-    //         p.rotateY(rotations[tileIndex]);
-
-    //         if (rotations[tileIndex] >= 180 + 1) {
-    //             rotations[tileIndex] = 180;
-    //         }
-
-    //         if (rotations[tileIndex] >= 90) {
-    //             flipColor[tileIndex] = true;
-    //         }
-    //     }
-    // }
+        function flowerCenter() {
+            p.push();
+            p.fill(248, 220, 117);
+            p.ellipse(0, 0, sizeScale / 2, sizeScale / 2);
+            p.pop();
+        }
+    }
 
     return <div className="flex flex-wrap items-center">
-        {/* <P5Canvas sketch={sketch} /> */}
+        <P5Canvas sketch={sketch} />
     </div>
 }
