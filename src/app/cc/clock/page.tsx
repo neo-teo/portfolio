@@ -55,7 +55,7 @@ export default function WordClock() {
             p.fill('white');
             p.textSize(20);
             p.textStyle(p.BOLD)
-            let hour = p.hour() % 12 || 12; // Converts 0 to 12 for midnight or noon
+            let hour = p.hour() % 12 || 12;
             p.text(hour + ":" + p.nf(p.minute(), 2) + ":" + p.nf(p.second(), 2), p.mouseX, p.mouseY);
         }
 
@@ -75,23 +75,22 @@ export default function WordClock() {
             p.rectMode(p.CENTER)
 
             for (let i = 0; i < numLeaves; i++) {
-                p.rotate(360 / numLeaves); // Distribute shapes in a circular pattern
+                p.rotate(360 / numLeaves);
                 p.fill('white');
                 p.rect(0, 0, w, sizeScale * 2, 500);
             }
         }
 
 
-        // ideally this slowly goes back to small guy at minute 0.
         function minutesHours() {
-            let tensMinutes = Math.floor(p.minute() / 10) + 1; // Tens place of the current minute (0-6)
-            let numCircles = tensMinutes * 2; // Number of circles to draw (0-6)
+            let tensMinutes = Math.floor(p.minute() / 10) + 1;
+            let numCircles = tensMinutes * 2;
             let currentHour = p.hour() % 12 + 1;
 
             let distance = p.map(currentHour, 1, 12, sizeScale * 0.8, 0);
 
             if (numCircles > 0) {
-                let angleStep = 360 / numCircles; // Angle between each circle
+                let angleStep = 360 / numCircles;
 
                 for (let i = 0; i < numCircles; i++) {
                     p.push();
