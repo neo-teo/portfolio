@@ -11,8 +11,7 @@ export default function Fun() {
             <div className="w-fit">
                 <LinkButton
                     label={"????"}
-                    to={"/cc"}
-                    internalLink
+                    to={"https://play.teo.fyi"}
                 />
             </div>
         </div>
