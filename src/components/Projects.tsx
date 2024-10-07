@@ -32,10 +32,9 @@ const projectProps = [
         liveLink: "https://www.stuut.co",
     },
     {
-        fullInfoUrl: "/a360",
         title: "ACTIVE>360",
         timeline: "2020 - 2023",
-        description: "Real time event processing application"
+        description: "Full-stack developer on a real time event processing application"
     },
     {
         fullInfoUrl: "/intus",
